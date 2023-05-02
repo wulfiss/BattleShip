@@ -9,7 +9,10 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"test": "jest",
+		"test:watch": "npm run test -- --watchAll",
+		"test:coverage": "jest --coverage"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.1",
@@ -33,5 +36,8 @@
 		"typescript": "^5.0.4",
 		"vite": "^4.3.4"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"jest-environment-jsdom": "^29.5.0"
+	}
 }
