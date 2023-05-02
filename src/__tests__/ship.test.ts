@@ -5,17 +5,21 @@ import '@testing-library/jest-dom';
 import { ship } from '../lib/utils/ship';
 
 describe('ship test', () => {
-	const testShip = ship(3);
-	testShip.hit();
+	let testShip: { hit: any; isSunk: any };
+
+	beforeEach(() => {
+		testShip = ship(3);
+	});
 
 	test('hit once', () => {
+		testShip.hit();
 		expect(testShip.isSunk()).toBeFalsy();
 	});
 
-	testShip.hit();
-	testShip.hit();
-
-	test('hit 3 times', () => {
+	test('ship is sunk?', () => {
+		testShip.hit();
+		testShip.hit();
+		testShip.hit();
 		expect(testShip.isSunk()).toBeTruthy();
 	});
 });

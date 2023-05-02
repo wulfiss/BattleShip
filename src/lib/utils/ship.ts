@@ -1,7 +1,9 @@
 const ship = (length: number) => {
-	const health = 0;
-	const hit = () => health + 1;
-	const isSunk = () => {
+	let health = 0;
+	const hit = (): number => (health += 1);
+	const isSunk = (): boolean => {
+		console.log(health, 'h');
+		console.log(length, 'l');
 		if (health == length) {
 			return true;
 		}
